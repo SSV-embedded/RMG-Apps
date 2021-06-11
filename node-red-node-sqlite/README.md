@@ -1,6 +1,6 @@
 # App Node-RED SQLite
 
-Node-RED node to read and write a local sqlite database.
+Node-RED node to read and write a local SQLite database.
 
 # Info
 - Software: https://flows.nodered.org/node/node-red-node-sqlite

@@ -1,10 +1,10 @@
 # App Node-RED
 
-Flow-based programming for the Internet of Thing  
-More information under: https://nodered.org/
+Flow-based programming for the Internet of Things (IoT). 
+More information here: https://nodered.org/
 
 # Info
-- Node-RED configuration under *WebUI* > *Apps* > *Node-RED*.
+- Node-RED configuration: *SSV/WebUI* > *Apps* > *Node-RED*.
 - Node-RED flows are saved under '`/media/data/node-red/`'.
 - Node-RED '`Manage palette`' is disabled. 
 

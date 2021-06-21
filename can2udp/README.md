@@ -3,6 +3,10 @@
 The CAN-to-UDP forwarding is a bridge between the CAN bus and the User Datagram Protocol (UDP) in IP-based networks. It converts CAN frames to and from generic frames (as specified by CiA 315) and transmits these over UDP.  
 
 # Info
+- The can2udp app is compatible with following SSV devices:
+  - RMG/941C
+  - RMG/941CL
+  - RMG/941CN
 - This Software was used to build the can2udp app: https://opensource.lely.com/canopen/docs/can2udp/
 
 # Example

@@ -4,9 +4,7 @@ The CAN-to-UDP forwarding is a bridge between the CAN bus and the User Datagram 
 
 # Info
 - The can2udp app is compatible with following SSV devices:
-  - RMG/941C
-  - RMG/941CL
-  - RMG/941CN
+  - RMG/941C(L, N)
 - This Software was used to build the can2udp app: https://opensource.lely.com/canopen/docs/can2udp/
 
 # Example

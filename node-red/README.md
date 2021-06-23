@@ -15,4 +15,7 @@ https://nodered.org/docs/tutorials/first-flow
 
 # Usage
 - Node-RED configuration: *SSV/WebUI* > *Apps* > *Node-RED*
+
+![rmg941c_webui_node-red](https://user-images.githubusercontent.com/85748650/123076404-6644fc00-d419-11eb-8a30-f9acfb5b53cf.PNG)
+
 - Official Node-RED YouTube channel with many video tutorials: https://www.youtube.com/channel/UCQaB8NXBEPod7Ab8PPCLLAA

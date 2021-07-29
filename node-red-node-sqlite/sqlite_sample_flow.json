@@ -1,0 +1,201 @@
+[
+    {
+        "id": "8f5c6bac.aaf228",
+        "type": "tab",
+        "label": "SQLite Sample Flow",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "5068b4db.b5c25c",
+        "type": "inject",
+        "z": "8f5c6bac.aaf228",
+        "name": "create table ",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.2",
+        "topic": "CREATE TABLE IF NOT EXISTS test (ts TEXT PRIMARY KEY NOT NULL, data REAL NOT NULL)",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 410,
+        "y": 160,
+        "wires": [
+            [
+                "b231dac.2c4fe28"
+            ]
+        ]
+    },
+    {
+        "id": "2ad90963.74c446",
+        "type": "inject",
+        "z": "8f5c6bac.aaf228",
+        "name": "load table",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "SELECT * FROM test",
+        "payload": "",
+        "payloadType": "date",
+        "x": 420,
+        "y": 200,
+        "wires": [
+            [
+                "b231dac.2c4fe28"
+            ]
+        ]
+    },
+    {
+        "id": "f461c22a.98a8b",
+        "type": "inject",
+        "z": "8f5c6bac.aaf228",
+        "name": "drop table",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "DROP TABLE test",
+        "payload": "",
+        "payloadType": "date",
+        "x": 420,
+        "y": 240,
+        "wires": [
+            [
+                "b231dac.2c4fe28"
+            ]
+        ]
+    },
+    {
+        "id": "b231dac.2c4fe28",
+        "type": "sqlite",
+        "z": "8f5c6bac.aaf228",
+        "mydb": "5119af8e.9c05c",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "test",
+        "x": 630,
+        "y": 100,
+        "wires": [
+            [
+                "2ef2b7a4.313c48",
+                "4d1a7ad2.4a69f4"
+            ]
+        ]
+    },
+    {
+        "id": "2ef2b7a4.313c48",
+        "type": "debug",
+        "z": "8f5c6bac.aaf228",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "4d1a7ad2.4a69f4",
+        "type": "debug",
+        "z": "8f5c6bac.aaf228",
+        "name": "Debug for load",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ef15f39.016ed1",
+        "type": "function",
+        "z": "8f5c6bac.aaf228",
+        "name": "Insert Data",
+        "func": "var ts = msg.payload;\nvar data = 20;\n\nreturn {\n    topic:\"INSERT INTO test VALUES ('\"+ts+\"',\"+data+\")\"\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 100,
+        "wires": [
+            [
+                "b231dac.2c4fe28"
+            ]
+        ]
+    },
+    {
+        "id": "910be42b.ba40a8",
+        "type": "inject",
+        "z": "8f5c6bac.aaf228",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "ef15f39.016ed1"
+            ]
+        ]
+    },
+    {
+        "id": "5119af8e.9c05c",
+        "type": "sqlitedb",
+        "db": "/tmp/test.db",
+        "mode": "RWC"
+    }
+]
